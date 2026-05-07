@@ -10,7 +10,7 @@
 // Struktur data untuk Node Tree nya
 typedef struct Node{
     char Nama[100];
-    struct Node *anak1, *anak2, *orangTua;
+    struct Node *anak1, *anak2;
 } Node;
 
 // Fungsi Pencari LCA (Lowest Common Ancestor)
@@ -38,13 +38,12 @@ Node* LCA (Node *root, char *nama1, char *nama2){
 }
 
 // Fungsi Create Node
-Node* CreateNode(char *nama, Node *orangTua){
+Node* CreateNode(char *nama){
     Node *newNode = malloc(sizeof(Node));
 
     strcpy(newNode->Nama, nama);
     newNode->anak1 = NULL;
     newNode->anak2 = NULL;
-    newNode->orangTua = orangTua;
 
     return newNode;
 }
@@ -52,22 +51,22 @@ Node* CreateNode(char *nama, Node *orangTua){
 // Fungsi Pembuat Tree (Sesuai dengan ilustrasi soal)
 Node* CreateTree(){
     // Generasi Pertama
-    Node* root = CreateNode("Yoru", NULL);
+    Node* root = CreateNode("Yoru");
 
     // Generasi Kedua
-    root->anak1 = CreateNode("Reyna", root);
-    root->anak2 = CreateNode("Killjoy", root);
+    root->anak1 = CreateNode("Reyna");
+    root->anak2 = CreateNode("Killjoy");
 
     // Generasi Ketiga
-    root->anak1->anak1 = CreateNode("Omen", root->anak1);
-    root->anak1->anak2 = CreateNode("Breach", root->anak1);
+    root->anak1->anak1 = CreateNode("Omen");
+    root->anak1->anak2 = CreateNode("Breach");
 
-    root->anak2->anak1 = CreateNode("Clove", root->anak2);
-    root->anak2->anak2 = CreateNode("Brimstone", root->anak2);
+    root->anak2->anak1 = CreateNode("Clove");
+    root->anak2->anak2 = CreateNode("Brimstone");
 
     // Generasi Keempat
-    root->anak2->anak1->anak1 = CreateNode("Cypher", root->anak2->anak1);
-    root->anak2->anak1->anak2 = CreateNode("Vyse", root->anak2->anak1);
+    root->anak2->anak1->anak1 = CreateNode("Cypher");
+    root->anak2->anak1->anak2 = CreateNode("Vyse");
 
     return root;
 }
