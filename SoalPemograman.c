@@ -14,15 +14,18 @@ typedef struct Node{
 } Node;
 
 // Fungsi Pencari LCA (Lowest Common Ancestor)
-Node* LCA (Node *root, char *nama1, char *nama2){
+Node* LCA (Node *root, char *nama1, char *nama2, int *kemunculanNama1, int *kemunculanNama2){
     // Jika merupakan ujung tree
     if (root == NULL) return NULL;
+
+    if ((strcmp(root->Nama, nama1) == 0)) (*kemunculanNama1) = 1;
+    if ((strcmp(root->Nama, nama2) == 0)) (*kemunculanNama2) = 1;
 
     // Jika root merupakan salah satu keturunan yang dicari
     if ((strcmp(root->Nama, nama1) == 0) || (strcmp(root->Nama, nama2) == 0)) return root;
 
-    Node *anak1LCA = LCA(root->anak1, nama1, nama2);
-    Node *anak2LCA = LCA(root->anak2, nama1, nama2);
+    Node *anak1LCA = LCA(root->anak1, nama1, nama2, kemunculanNama1, kemunculanNama2);
+    Node *anak2LCA = LCA(root->anak2, nama1, nama2, kemunculanNama1, kemunculanNama2);
 
     // Jika kedua anak merupakan leluhur dari keturunan yang dicari, maka root ini merupakan LCA
     // (Berjalan/terpenuhi jika kedua variabel bukan NULL)
@@ -30,8 +33,20 @@ Node* LCA (Node *root, char *nama1, char *nama2){
 
     // Jika Ternyata Salah satu anaknya merupakan keturunan yang dicari, apakah dia juga leluhur keturunan yang lain
     // Jika iya, maka orangtuanya adalah LCA
-    else if (anak1LCA != NULL) if ((strcmp(anak1LCA->Nama, nama1) == 0) || (strcmp(anak1LCA->Nama, nama2) == 0)) if (LCA(anak1LCA->anak1, nama1, nama2) || LCA(anak1LCA->anak2, nama1, nama2)) return root;
-    else if (anak2LCA != NULL) if ((strcmp(anak2LCA->Nama, nama1) == 0) || (strcmp(anak2LCA->Nama, nama2) == 0)) if (LCA(anak2LCA->anak1, nama1, nama2) || LCA(anak2LCA->anak2, nama1, nama2)) return root;
+    else if (anak1LCA != NULL){
+        if ((strcmp(anak1LCA->Nama, nama1) == 0) || (strcmp(anak1LCA->Nama, nama2) == 0)){
+            if (LCA(anak1LCA->anak1, nama1, nama2, kemunculanNama1, kemunculanNama2) || LCA(anak1LCA->anak2, nama1, nama2, kemunculanNama1, kemunculanNama2)){
+                return root;
+            }
+        }
+    }
+    else if (anak2LCA != NULL){
+        if ((strcmp(anak2LCA->Nama, nama1) == 0) || (strcmp(anak2LCA->Nama, nama2) == 0)){
+            if (LCA(anak2LCA->anak1, nama1, nama2, kemunculanNama1, kemunculanNama2) || LCA(anak2LCA->anak2, nama1, nama2, kemunculanNama1, kemunculanNama2)){
+                return root;
+            }
+        }
+    }
 
     // Mengembalikan pointer anak yang bukan NULL (Jika ada)
     return (anak1LCA != NULL) ? anak1LCA : anak2LCA;
@@ -76,6 +91,7 @@ int main(){
     // Pendefinisian dan inisialisasi Variabel
     Node *pohonKeluarga = CreateTree();
     char nama1[100], nama2[100];
+    int kemunculanNama1 = 0, kemunculanNama2 = 0;
 
     // Pengambilan Input
     printf("Masukkan orang pertama: ");
@@ -85,10 +101,14 @@ int main(){
     scanf("%s", nama2);
 
     // Mencari LCA
-    Node *lca = LCA(pohonKeluarga, nama1, nama2);
+    Node *lca = LCA(pohonKeluarga, nama1, nama2, &kemunculanNama1, &kemunculanNama2);
 
     // Print hasil
-    printf("Leluhur mereka adalah %s.\n", lca->Nama);
+    if ((strcmp("Yoru", nama1) == 0) || (strcmp("Yoru", nama2) == 0)) printf("Yoru merupakan leluhur paling sepuh jadi gak punya leluhur lagi bos!!!");
+    else if (!(kemunculanNama1 || kemunculanNama2)) printf("%s dan %s siapa bro?!\n", nama1, nama2);
+    else if (!kemunculanNama1) printf("%s siapa bro?!", nama1);
+    else if (!kemunculanNama2) printf("%s siapa bro?!", nama2);
+    else printf("Leluhur mereka adalah %s.\n", lca->Nama);
 
     return 0;
 }
