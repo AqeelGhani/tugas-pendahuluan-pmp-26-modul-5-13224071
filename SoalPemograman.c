@@ -13,7 +13,7 @@ typedef struct Node{
     struct Node *anak1, *anak2;
 } Node;
 
-// Pembuatan fungsi LCA (Lowest Common Ancestor)
+// Fungsi Pencari LCA (Lowest Common Ancestor)
 Node* LCA (Node *root, char *nama1, char *nama2){
     // Jika merupakan ujung tree
     if (root == NULL) return NULL;
@@ -30,6 +30,17 @@ Node* LCA (Node *root, char *nama1, char *nama2){
 
     // Mengembalikan pointer anak yang bukan NULL (Jika ada)
     return (anak1LCA != NULL) ? anak1LCA : anak2LCA;
+}
+
+// Fungsi Create Node
+Node* CreateNode(char *nama){
+    Node *newNode = malloc(sizeof(Node));
+
+    strcpy(newNode->Nama, nama);
+    newNode->anak1 = NULL;
+    newNode->anak2 = NULL;
+
+    return newNode;
 }
 
 int main(){
