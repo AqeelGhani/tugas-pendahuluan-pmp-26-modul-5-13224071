@@ -19,7 +19,7 @@ Node* LCA (Node *root, char *nama1, char *nama2){
     if (root == NULL) return NULL;
 
     // Jika root merupakan salah satu keturunan yang dicari
-    if ((strcmp(root->Nama, nama1) == 0) || (strcmp(root->Nama, nama1) == 0)) return root;
+    if ((strcmp(root->Nama, nama1) == 0) || (strcmp(root->Nama, nama2) == 0)) return root;
 
     Node *anak1LCA = LCA(root->anak1, nama1, nama2);
     Node *anak2LCA = LCA(root->anak2, nama1, nama2);
