@@ -43,6 +43,29 @@ Node* CreateNode(char *nama){
     return newNode;
 }
 
+// Fungsi Pembuat Tree (Sesuai dengan ilustrasi soal)
+Node* CreateTree(){
+    // Generasi Pertama
+    Node* root = CreateNode("Yoru");
+
+    // Generasi Kedua
+    root->anak1 = CreateNode("Reyna");
+    root->anak2 = CreateNode("Killjoy");
+
+    // Generasi Ketiga
+    root->anak1->anak1 = CreateNode("Omen");
+    root->anak1->anak2 = CreateNode("Breach");
+
+    root->anak2->anak1 = CreateNode("Clove");
+    root->anak2->anak2 = CreateNode("Brimstone");
+
+    // Generasi Keempat
+    root->anak2->anak1->anak1 = CreateNode("Cypher");
+    root->anak2->anak1->anak2 = CreateNode("Vyse");
+
+    return root;
+}
+
 int main(){
 
 }
