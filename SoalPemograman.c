@@ -28,6 +28,11 @@ Node* LCA (Node *root, char *nama1, char *nama2){
     // (Berjalan/terpenuhi jika kedua variabel bukan NULL)
     if (anak1LCA && anak2LCA) return root;
 
+    // Jika Ternyata Salah satu anaknya merupakan keturunan yang dicari, apakah dia juga leluhur keturunan yang lain
+    // Jika iya, maka orangtuanya adalah LCA
+    else if (anak1LCA != NULL) if ((strcmp(anak1LCA->Nama, nama1) == 0) || (strcmp(anak1LCA->Nama, nama2) == 0)) if (LCA(anak1LCA->anak1, nama1, nama2) || LCA(anak1LCA->anak2, nama1, nama2)) return root;
+    else if (anak2LCA != NULL) if ((strcmp(anak2LCA->Nama, nama1) == 0) || (strcmp(anak2LCA->Nama, nama2) == 0)) if (LCA(anak2LCA->anak1, nama1, nama2) || LCA(anak2LCA->anak2, nama1, nama2)) return root;
+
     // Mengembalikan pointer anak yang bukan NULL (Jika ada)
     return (anak1LCA != NULL) ? anak1LCA : anak2LCA;
 }
