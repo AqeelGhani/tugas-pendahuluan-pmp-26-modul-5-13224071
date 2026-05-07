@@ -66,8 +66,26 @@ Node* CreateTree(){
     return root;
 }
 
+// Fungsi Main
 int main(){
+    // Pendefinisian dan inisialisasi Variabel
+    Node *pohonKeluarga = CreateTree();
+    char nama1[100], nama2[100];
 
+    // Pengambilan Input
+    printf("Masukkan orang pertama: ");
+    scanf("%s", nama1);
+
+    printf("Masukkan orang kedua: ");
+    scanf("%s", nama2);
+
+    // Mencari LCA
+    Node *lca = LCA(pohonKeluarga, nama1, nama2);
+
+    // Print hasil
+    printf("Leluhur mereka adalah %s.\n", lca->Nama);
+
+    return 0;
 }
 
 // Referensi
