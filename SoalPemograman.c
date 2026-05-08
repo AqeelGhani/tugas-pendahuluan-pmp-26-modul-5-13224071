@@ -104,7 +104,7 @@ int main(){
     Node *lca = LCA(pohonKeluarga, nama1, nama2, &kemunculanNama1, &kemunculanNama2);
 
     // Print hasil
-    if ((strcmp("Yoru", nama1) == 0) || (strcmp("Yoru", nama2) == 0)) printf("Yoru merupakan leluhur paling sepuh jadi gak punya leluhur lagi bos!!!");
+    if ((strcmp(pohonKeluarga->Nama, nama1) == 0) || (strcmp(pohonKeluarga->Nama, nama2) == 0)) printf("%s merupakan leluhur paling sepuh jadi gak punya leluhur lagi bos!!!", pohonKeluarga->Nama);
     else if (!(kemunculanNama1 || kemunculanNama2)) printf("%s dan %s siapa bro?!\n", nama1, nama2);
     else if (!kemunculanNama1) printf("%s siapa bro?!", nama1);
     else if (!kemunculanNama2) printf("%s siapa bro?!", nama2);
