@@ -1,6 +1,6 @@
 # Tugas Pendahuluan Modul 5 Praktikum Pemecahan Masalah dengan Pemograman
 
-![Gambar Steve Meratapi Kehidupan](https://i.pinimg.com/originals/7a/96/93/7a96939d200f86ed03714c175a63af7b.gif)
+![Futaba ngerjain PMP](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6414c76b-c009-4075-be85-06d1024ab72f/dd3j44k-4ee46d8f-97a0-4bbb-b746-295dbefd1cf7.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi82NDE0Yzc2Yi1jMDA5LTQwNzUtYmU4NS0wNmQxMDI0YWI3MmYvZGQzajQ0ay00ZWU0NmQ4Zi05N2EwLTRiYmItYjc0Ni0yOTVkYmVmZDFjZjcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.s5TLuHFyFCM2YzviFw8a1OeU1PLyVb6ufquAwxMxDjI)
 
 Ini merupakan repositori Tugas Pendahuluan modul 5 Praktikum Pemecahan Masalah dengan Pemograman milik praktikan Muhammad Aqeel Ghani (NIM. 13224071). Semoga repositori ini dapat dipergunakan dengan baik untuk membantu Asisten menilai praktikan. Naskah Soal Tugas Pendahuluan dapat diakses pada file `Modul 5 - Naskah Soal Tugas Pendahuluan EL2008 PMP.pdf`
 
